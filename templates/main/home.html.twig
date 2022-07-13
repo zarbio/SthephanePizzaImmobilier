@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{form_start(form) }}
+    {{ form_row(form.superficie) }}
+    {{ form_row(form.nombrePieces) }}
+    {{ form_row(form.typeLogement) }}
+    {{ form_row(form.adresse) }}
+    {{ form_row(form.piscine) }}
+    {{ form_row(form.exterieur) }}
+    {{ form_row(form.garage) }}
+    {{ form_row(form.typeVente) }}
+    <div class="prix">
+    {{ form_row(form.prix) }}
+    {{ form_row(form.prixMax) }}
+    </div>
+    <button>Valider la recherche</button>
+    {{ form_end(form) }}
+    {% for logement in pagination %}
+        <h2><a href="{{ path('main_details',{'id' : logement.id}) }}">Adresse: {{ logement.adresse }}</a><a href="{{ path('main_ajoutModifier',{"id": logement.id }) }}">[modifier]</a></h2>
+        <img height="400" src="{{ asset('images/logements/'~logement.image) }}" alt="image logement">
+        <ul>
+            <li>superficie : {{ logement.superficie }}m²</li>
+            {% if logement.typeVente == "vente" %}
+                <li>Prix : {{ logement.prix }}€</li>
+            {% else %}
+                <li>Loyer: {{ logement.prix }}€/mois</li>
+            {% endif %}
+        </ul>
+    {% endfor %}
+    <div>
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}
+
+{% block title %}
+{{ parent() }}
+{% endblock %}
+

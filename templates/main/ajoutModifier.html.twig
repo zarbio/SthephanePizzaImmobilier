@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{{ form_start(form) }}
+    {{ form_row(form.superficie) }}
+    {{ form_widget(form) }}
+    <button>Ajouter un logement</button>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block title %}
+Ajouter/modifier un logement
+{% endblock %}
+

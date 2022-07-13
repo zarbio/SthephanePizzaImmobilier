@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Stéphane Pizza Immobilier {% endblock %}</title>
+    <link rel="icon" href="{{ asset('images/pizza-ge5f799e3a_1280.png') }}">
+    <link rel="stylesheet" href="{{ asset('css/css.css') }}">
+    <script src="{{ asset('js/script.js') }} "defer></script>
+</head>
+<body>
+<div class="global">
+    <div>
+<header>
+    <h1>Stéphane Pizza Immobilier</h1>
+    <a href="{{ path('main_home') }}"><img src="{{ asset('images/pizza-ge5f799e3a_1280.png') }}" alt="Stéphane Pizza Immobilier" width="300" height="164"></a>
+    <nav>
+        <ul>
+            <a href="{{ path('main_ajoutModifier') }}"><li>Ajouter un logement</li></a>
+            <a href="{{ path('main_CGU') }} "><li>CGU</li></a>
+            <a href="{{ path('main_mentions') }}"><li>Mentions Légales</li></a>
+            <a href="{{ path('main_qui') }}"><li>Qui suis-je?</li></a>
+        </ul>
+    </nav>
+</header>
+    </div>
+    <div>
+<main>
+    {% block body %}
+    {% endblock %}
+</main>
+    </div>
+    <div>
+<footer>
+    <p>&copy; {{ "now"|date("Y") }}</p>
+</footer>
+    </div>
+</div>
+</body>
+</html>

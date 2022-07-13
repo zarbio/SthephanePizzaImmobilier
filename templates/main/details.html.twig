@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <img height="400" src="{{ asset('images/logements/'~logement.image) }}" alt="image logement">
+    <h2>Adresse: {{ logement.adresse }}</h2>
+<ul>
+    <li>superficie : {{ logement.superficie }}m²</li>
+    <li>nombre pièces : {{ logement.nombrePieces }}</li>
+    <li>Type logement : {{ logement.typeLogement }}</li>
+    {% if logement.piscine == 0 %}
+        <li>Piscine : non</li>
+    {% else %}
+        <li>Piscine : oui</li>
+    {% endif %}
+    {% if logement.garage == 0 %}
+        <li>Garage : non</li>
+    {% else %}
+        <li>Garage : oui</li>
+    {% endif %}
+    {% if logement.exterieur  %}
+        <li>Exterieur : {{ logement.exterieur }}m²</li>
+    {% else %}
+        <li>Extérieur : non</li>
+    {% endif %}
+    {% if logement.typeVente == "vente" %}
+        <li>Prix : {{ logement.prix }}€</li>
+    {% else %}
+        <li>Loyer: {{ logement.prix }}€/mois</li>
+    {% endif %}
+</ul>
+{% endblock %}
+
+{% block title %}
+details
+{% endblock %}
+

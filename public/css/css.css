@@ -1,0 +1,24 @@
+ul li{
+    list-style-type: none;
+}
+.global{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+header nav ul{
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    justify-content: center;
+}
+header nav ul li{
+    padding-right: 10px;
+
+}
+.prix{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
